@@ -1,6 +1,6 @@
 <?php
 // Project name
-define('PROJECT_NAME', 'blog_vs_20_1');
+define('PROJECT_NAME', 'blog_vs20_1');
 // App root dir
 define('APPROOT', dirname(dirname( __FILE__)));
 // URL root
