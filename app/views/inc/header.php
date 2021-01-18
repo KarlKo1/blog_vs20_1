@@ -10,4 +10,5 @@
     <title><?php echo PROJECT_NAME;?></title>
 </head>
 <body>
+<div class="container">
 
