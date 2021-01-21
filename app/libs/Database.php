@@ -40,7 +40,7 @@ class Database
                     $type = PDO::PARAM_INT;
                     break;
                 case is_bool($value):
-                    $type = PDO::PARAM_Bool;
+                    $type = PDO::PARAM_BOOL;
                     break;
                 case is_null($value):
                     $type = PDO::PARAM_NULL;

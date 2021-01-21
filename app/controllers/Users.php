@@ -48,9 +48,13 @@ class Users extends Controller
             } else if ($data['confirm_password'] !== $data['confirm_password']) {
                 $data['confirm_password_err'] = 'Passwords do not match';
             }
-            if (empty($data['name_err']) and empty ($data['email_err']) and empty($data['password_err']) and empty($data['confirm_password_err'])) {
+            if (empty($data['name_err']) and empty($data['email_err']) and empty($data['password_err']) and empty($data['confirm_password_err'])) {
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-                print_r($data);
+                if ($this->usersModel->register($data)) {
+                    header('Location: ' . URLROOT . '/' . 'users/login');
+                } else {
+                    die('Something went wrong');
+                }
             }
         } else {
             $data = array(
