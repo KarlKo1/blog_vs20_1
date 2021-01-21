@@ -45,10 +45,13 @@ class Users extends Controller
                 $data['confirm_password_err'] = 'Please enter the confirm password';
             } else if (strlen($data['confirm_password']) < 6) {
                 $data['confirm_password_err'] = 'Password must consist at least 6 characters';
-            } else if ($data['password'] !== $data['confirm_password']) {
+            } else if ($data['confirm_password'] !== $data['confirm_password']) {
                 $data['confirm_password_err'] = 'Passwords do not match';
             }
-            $this->view('users/register', $data);
+            if (empty($data['name_err']) and empty ($data['email_err']) and empty($data['password_err']) and empty($data['confirm_password_err'])) {
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+                print_r($data);
+            }
         } else {
             $data = array(
                 'name' => '',
