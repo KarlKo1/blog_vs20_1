@@ -68,8 +68,9 @@ class Users extends Controller
                 'password_err' => '',
                 'confirm_password_err' => ''
             );
-            $this->view('users/register', $data);
         }
+
+        $this->view('users/register', $data);
 
     }
 
