@@ -1,4 +1,4 @@
-<?php require_once APPROOT . '/views/inc/header.php'; ?><h1>Login User</h1>
+<?php require_once APPROOT . '/views/inc/header.php'; ?>
     <div class="row">
         <div class="col-md-6 mx-auto">
             <!-- form register -->
