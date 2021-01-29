@@ -67,7 +67,7 @@ class Posts extends Controller
             }
             if (empty($data['title_err']) and empty($data['content_err'])) {
                 if ($this->postsModel->editPost($data)) {
-                    message('post_message', 'Post Updated');
+                    message('posts_message', 'Post Updated');
                     redirect('posts');
                 } else {
                     die('Something went wrong');
@@ -88,6 +88,43 @@ class Posts extends Controller
                 'content' => $post->content
             );
             $this->view('posts/edit', $data);
+        }
+    }
+
+    public function add()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = array(
+                'title' => trim($_POST['title']),
+                'content' => trim($_POST['content']),
+                'user_id' => $_SESSION['user_id'],
+                'title_err' => '',
+                'content_err' => ''
+            );
+            if (empty($data['title'])) {
+                $data['title_err'] = 'Please enter title';
+            }
+            if (empty($data['content'])) {
+                $data['content_err'] = 'Please enter content text';
+            }
+            if (empty($data['title_err']) and empty($data['content_err'])) {
+                if ($this->postsModel->addPost($data)) {
+                    message('posts_message', 'Post Added');
+                    redirect('posts');
+                } else {
+                    die('Something went wrong');
+                }
+            } else {
+                $this->view('posts/add', $data);
+            }
+
+        } else {
+            $data = array(
+                'title' => '',
+                'content' => ''
+            );
+            $this->view('posts/add', $data);
         }
     }
 }

@@ -7,7 +7,7 @@
     <a href="<?php echo URLROOT ?>/posts" class="btn btn-info">Back</a>
     <hr>
 <?php if ($data['post']->user_id == $_SESSION['user_id']): ?>
-    <div class="row justifiy-content-around">
+    <div class="row justify-content-around">
         <div class="col-8">
             <a href="<?php echo URLROOT ?>/posts/edit/<?php echo $data['post']->id; ?>" class="btn btn-success">Edit</a>
         </div>
