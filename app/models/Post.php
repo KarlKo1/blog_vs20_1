@@ -76,4 +76,17 @@ class Post
             return false;
         }
     }
+
+    public function getTagId($id)
+    {
+        $this->db->query('
+            SELECT * FROM posts
+            JOIN users
+            ON posts.user_id = users.id 
+            JOIN post_tags
+            ON posts.id = post_tags.post_id 
+            WHERE post_tags.tag_id = :id');
+        $this->db->bind('id', $id);
+        return $result = $this->db->getAll();
+    }
 }
