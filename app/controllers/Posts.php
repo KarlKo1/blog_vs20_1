@@ -21,7 +21,7 @@ class Posts extends Controller
         $this->view('posts/index', $data);
     }
 
-    public function show()
+    public function show($id)
     {
         $post = $this->postsModel->getPostById($id);
         $tags = $this->tagsModel->getPostTags($id);

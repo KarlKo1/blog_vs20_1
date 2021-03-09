@@ -13,11 +13,9 @@ echo '</pre>';
         <h3 class="card-title"><?php echo $post->title; ?></h3>
         <div class="bg-light p-2 mb-3">Created by <?php echo $post->name; ?> at <?php echo $post->created_at; ?></div>
         <p class="card-text"><?php echo $post->content; ?></p>
-        <a href="<?php echo URLROOT ?>/posts/show/<?php echo $post->post . id; ?>" class="btn btn-info">More</a>
+        <a href="<?php echo URLROOT ?>/posts/show/<?php echo $post->postId; ?>" class="btn btn-info">More</a>
     </div>
     <a href="<?php echo URLROOT ?>/posts" class="btn btn-info">Back</a>
     </div>
 <?php endforeach; ?>
-
-
 <?php require_once APPROOT . '/views/inc/footer.php'; ?>

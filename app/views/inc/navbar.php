@@ -14,6 +14,7 @@
                     <a href="<?php echo URLROOT; ?>/tags" class="nav-link">Tags</a>
                 </li>
             </ul>
+
             <ul class="navbar-nav ml-auto">
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <li class="nav-item">
